@@ -20,14 +20,13 @@ export default function Homepage() {
                         <h1>Helping mamas thrive</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque ea vitae accusamus suscipit neque, eius reiciendis mollitia exercitationem ab architecto perferendis iusto fugiat maxime expedita fugit pariatur adipisci temporibus consectetur! Fugit assumenda omnis necessitatibus quo optio tempore suscipit ducimus possimus?</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing rferendis iusto fugiat maxime expedita fugit pariatur adipisci temporibus consectetur! Fugit assumenda omnis necessitatibus quo optio tempore suscipit ducimus possimus?</p>
-                        <a href="" className='nav-link primary-btn'>Contact Us</a>
+
                     </div>
 
                 </div>
             </section>
             {/* quiz-section */}
-            <section className="quiz-section"></section>
-
+            
             {/* Testimonial */}
             <section className='testimonial-section '>
                 <div id="carouselExample" class="carousel slide">
