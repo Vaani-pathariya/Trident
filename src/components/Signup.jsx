@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import img from '../assets/images/loginPageImage.jpg'
 import { Link } from 'react-router-dom'
-
+import { ref,set} from "firebase/database";
+import {db_connecting} from "./firebaseConfig"
 export default function Signup() {
   const [email,setEmail]=useState("")
   const [username,setUsername]=useState("")
@@ -16,7 +17,18 @@ const handleChange_pass = event => {
   setPass(event.target.value);
 };
 const handle_Click=()=>{
-    
+  if (email!="" & password!="" & username!=""){
+  set(ref(db_connecting,`/Therapists/${username}`),{
+    email_or_name:email,
+    password:password
+  })
+  }
+}
+const next_link=()=>{
+  if (email!="" & password!="" & username!="")
+  return "/login";
+  else 
+  return "/register"
 }
   return (
     <div >
@@ -38,7 +50,7 @@ const handle_Click=()=>{
               <div className="login-input-field">
                 <input type="password" placeholder='Create Password'required='required'  value={password} onChange={handleChange_pass}/>
               </div>
-              <button className='primary-btn' type="submit" onClick={handle_Click}>Register</button>
+              <Link to={next_link()} onClick={handle_Click}><button className='primary-btn' type="submit" >Register</button></Link>
               <h3>or</h3>
               <button className='primary-btn flex google-btn' type="submit"><i class="fa-brands fa-google"></i> &nbsp;Continue with Google</button>
               <div className='signup-opt flex'>

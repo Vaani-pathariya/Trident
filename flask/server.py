@@ -20,7 +20,6 @@ write_db=firebase.database()
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
-
 # Fetch the service account key JSON file contents
 cred = credentials.Certificate('trident-a4b03-firebase-adminsdk-e756t-f9ceca776a.json')
 
@@ -30,30 +29,67 @@ firebase_admin.initialize_app(cred, {
 })
 
 # As an admin, the app has access to read and write all data, regradless of Security Rules
-ref = db.reference('names')
-print(ref.get())
-write_db.child("names").push({"name":"devanshi"})
-x = datetime.datetime.now()
-
-# Initializing flask app
 app = Flask(__name__)
-
-
 # Route for seeing a data
 @app.route('/data')
 def get_time():
+	predicting_list=[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]
+	ref = db.reference('Active').get()['id']
+	final = db.reference('Users').child(ref).child('Answers').get()
+	if final[0]==0:
+		predicting_list[0][21]=1
+	elif final[0]==1:
+		predicting_list[0][23]=1
+	else :
+		predicting_list[0][22]=1
+	if final[1]==0:
+		predicting_list[0][16]=1
+	elif final[1]==1:
+		predicting_list[0][17]=1
+	else :
+		predicting_list[0][15]=1
+	if final[2]==0:
+		predicting_list[0][3]=1
+	elif final[2]==1:
+		predicting_list[0][5]=1
+	else :
+		predicting_list[0][4]=1
+	if final[3]==0:
+		predicting_list[0][0]=1
+	elif final[3]==1:
+		predicting_list[0][2]=1
+	else :
+		predicting_list[0][1]=1
+	if final[4]==0:
+		predicting_list[0][12]=1
+	elif final[4]==1:
+		predicting_list[0][14]=1
+	else :
+		predicting_list[0][13]=1
+	if final[5]==0:
+		predicting_list[0][9]=1
+	elif final[5]==1:
+		predicting_list[0][11]=1
+	else :
+		predicting_list[0][10]=1
+	if final[6]==0:
+		predicting_list[0][18]=1
+	elif final[6]==1:
+		predicting_list[0][20]=1
+	else :
+		predicting_list[0][19]=1
+	if final[7]==0:
+		predicting_list[0][6]=1
+	elif final[7]==1:
+		predicting_list[0][8]=1
+	else :
+		predicting_list[0][7]=1
+	# Initializing flask app
+	result = mp.predict(predicting_list)[0]
 
-	# Returning an api for showing in reactjs
 	return {
-		'Name':"geek",
-		"Age":"22",
-		"Date":x,
-		"programming":"python"
+		'prediction': result
 		}
 
-@app.route('/add_data')
-def get_data():
-	final_data=requests.request.get_json()
-# Running app
 if __name__ == '__main__':
 	app.run(debug=True)

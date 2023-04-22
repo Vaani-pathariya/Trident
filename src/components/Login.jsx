@@ -1,28 +1,27 @@
 import React, { useState } from 'react'
 import img from '../assets/images/loginPageImage.jpg'
 import { Link } from 'react-router-dom'
+import { ref,onValue} from "firebase/database";
+import {db_connecting} from './firebaseConfig'
 export default function
     () {
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
+    const [login_next,useLogin]=useState("/login")
     const handleChange_email = event => {
         setEmail(event.target.value);
     };
+
     const handleChange_pass = event => {
         setPassword(event.target.value);
     };
-    const handle_Click=async ()=>{
-        const todo="yes i am working"
-        const response = await fetch("/add_data", {
-            method: "POST",
-            headers: {
-            'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify(todo)
-            })
-            if (response.ok){
-            console.log("it worked")
+    const handle_Click=async (event)=>{
+        onValue(ref(db_connecting),snapshot=>{
+            const data=snapshot.val();
+            if (data["Therapists"][email]["password"]==password){
+                useLogin("/response")
             }
+        })
     }
     return (
         <div >
@@ -36,7 +35,7 @@ export default function
                             <h2>Hello!</h2>
                             <p>Login to our postpartum depression detection system and take the first step towards self-care.</p>
                             <div className="login-input-field">
-                                <input type="text" placeholder='Enter username or Email' required='required' onChange={handleChange_email}/>
+                                <input type="text" placeholder='Enter username' required='required' onChange={handleChange_email}/>
                             </div>
                             <div className="login-input-field">
                                 <input type="password" placeholder='Enter Password' required='required' onChange={handleChange_pass}/>
@@ -45,7 +44,7 @@ export default function
                                 <input type="checkbox" />
                                 <label htmlFor=""> Remember me</label>
                             </div>
-                            <button className='primary-btn' type="submit" onClick={handle_Click}>Login</button>
+                            <Link to={login_next} onClick={handle_Click}><button className='primary-btn'  >Login</button></Link>
                             <h3>or</h3>
                             <button className='primary-btn flex google-btn' type="submit"><i class="fa-brands fa-google"></i> &nbsp;Continue with Google</button>
                             <div className='signup-opt flex'>

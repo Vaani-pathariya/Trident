@@ -10,7 +10,7 @@ export default function Header() {
             <div className="nav-links-container">
                 <ul className="nav-links flex">
                     <li className='nav-link'><Link to="/" ><i class="fa-solid fa-user"></i></Link></li>
-                    <li className='nav-link primary-btn'><Link to="/login" >Signup/Login</Link></li>
+                    <li className='nav-link primary-btn'><Link to="/signup" >Signup/Login</Link></li>
                 </ul>
             </div>
         </div>
