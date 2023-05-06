@@ -3,6 +3,7 @@ from flask import Flask
 import pickle
 with open('model_pickle','rb') as f:
     mp=pickle.load(f)
+from twilio.rest import Client
 
 firebaseConfig = {
     "apiKey": "AIzaSyDzUQkXoDISGb5tv-w-xh7uxjf43d9zMNE",
@@ -25,30 +26,25 @@ cred = credentials.Certificate('trident-a4b03-firebase-adminsdk-e756t-f9ceca776a
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://trident-a4b03-default-rtdb.firebaseio.com/'
 })
+TWILIO_SID='AC3c56255301b4c916b769acb3204e053a'
+TWILIO_TOKEN='424f94919bf026e2d40316ab5f4058b1'
 
+client=Client(TWILIO_SID,TWILIO_TOKEN)
 # As an admin, the app has access to read and write all data, regradless of Security Rules
 app = Flask(__name__)
 # Route for seeing a data
 @app.route('/data/alert')
 def alert_patient():
 	phone_numbers_ref = db.reference('Alert').get()['id']
-	phone_numbers =db.reference('Users').child(phone_numbers_ref).child('phoneNumber').get()
-
-	from twilio.rest import Client
-
-	TWILIO_SID='ACe9297bea9a47f04ae6c5672e3a52f0fd'
-	TWILIO_TOKEN='f5befd3b30d7a14a664daa240420e48b'
-	TWILIO_PHONE='+13184963471'
-
-	client=Client(TWILIO_SID,TWILIO_TOKEN)
-
-	client.message.create(
+	phone_numbers =db.reference('Users').child(phone_numbers_ref).get()['phoneNumber']
+	TWILIO_PHONE='+13262667757'
+	client.messages.create(
 		from_= TWILIO_PHONE,
-		to='+91'+phone_numbers,
-		body=
-	"Greetings of the day! This is to inform you that your quiz answers have been analyzed by our therapist. They will be contacting you shortly to discuss the next steps. Thank you for participating!\nRegards,\nThe TherapyPal team."
+		to= '+91'+str(phone_numbers),
+		body="Greetings of the day! This is to inform you that your quiz answers have been analyzed by our therapist. They will be contacting you shortly to discuss the next steps. Thank you for participating!\nRegards,\nThe TherapyPal team."
 	)
-	return "hello"
+
+	return "SMS Sent"
 
 @app.route('/data')
 def get_time():
