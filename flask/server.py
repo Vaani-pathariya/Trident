@@ -1,8 +1,6 @@
 import pyrebase
 from flask import Flask
-import datetime
 import pickle
-import requests
 with open('model_pickle','rb') as f:
     mp=pickle.load(f)
 
@@ -33,6 +31,23 @@ app = Flask(__name__)
 # Route for seeing a data
 @app.route('/data/alert')
 def alert_patient():
+	phone_numbers_ref = db.reference('Alert').get()['id']
+	phone_numbers =db.reference('Users').child(phone_numbers_ref).child('phoneNumber').get()
+
+	from twilio.rest import Client
+
+	TWILIO_SID='ACe9297bea9a47f04ae6c5672e3a52f0fd'
+	TWILIO_TOKEN='f5befd3b30d7a14a664daa240420e48b'
+	TWILIO_PHONE='+13184963471'
+
+	client=Client(TWILIO_SID,TWILIO_TOKEN)
+
+	client.message.create(
+		from_= TWILIO_PHONE,
+		to='+91'+phone_numbers,
+		body=
+	"Greetings of the day! This is to inform you that your quiz answers have been analyzed by our therapist. They will be contacting you shortly to discuss the next steps. Thank you for participating!\nRegards,\nThe TherapyPal team."
+	)
 	return "hello"
 
 @app.route('/data')
