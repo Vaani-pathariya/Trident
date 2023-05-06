@@ -3,12 +3,13 @@ import "./response.css"
 import Footer from "./Footer";
 import { ref,onValue,set} from "firebase/database";
 import {db_connecting} from './firebaseConfig'
+import flying from "../assets/images/flying.gif"
 import Card from "./Card";
 const Response =()=>{
     const [username,setUsername]=useState("")
     const [quiz,setQuiz]=useState("");
     const [count,setCount]=useState(0);
-    const [prediction_ans,setPrediction_ans]=("");
+    const [prediction_ans,setPrediction_ans]=useState("No");
     const [data_,setData]=useState({
         prediction : "No"
     });
@@ -41,7 +42,7 @@ const Response =()=>{
         setUsername(event.target.value);
       };
     console.log(map)
-    const handle_Click=()=>{
+    const handle_Click=async()=>{
         onValue(ref(db_connecting),snapshot=>{
             const data=snapshot.val();
             setCount(0);
@@ -236,6 +237,7 @@ const Response =()=>{
                     setPrediction_ans("Yes");
                 }
                 else setPrediction_ans("No")
+                console.log(count)
                 }
                 else {
                     if (data["Users"][username]["Answers"][0] == 0)
@@ -297,14 +299,13 @@ const Response =()=>{
                         setPrediction_ans("Maybe");
                     }
                     else setPrediction_ans("No")
+                    console.log(count)
                     }
         })
         set(ref(db_connecting,`/Active`),{
             id: username
-          })
-    }
-    useEffect(() => {
-        fetch("/data").then((res) =>
+          });
+        await fetch("/data").then((res) =>
             res.json().then((data) => {
                 // Setting a data from api
                 setData({
@@ -312,7 +313,15 @@ const Response =()=>{
                 });
             })
         );
-    }, []);
+    }
+    const sendAlert=async()=>{
+        set(ref(db_connecting,`/Alert`),{
+            id: username
+        });
+        await fetch("/data/alert").then(
+            console.log("done")
+        );
+    }
     return (
         <div>
             <div className="Response">
@@ -323,6 +332,7 @@ const Response =()=>{
             </div>
             {(quiz=="") &&
             <div >
+                <img src={flying} className="flying"/>
             </div>
 }
             {(quiz=="P")&&<div>
@@ -335,6 +345,7 @@ const Response =()=>{
             <Card question={que[6]} answer={map[6]}/>
             <Card question={que[7]} answer={map[7]}/>
             <Card question="Prediction of depression" answer={data_.prediction}/>
+            <div className="alert" onClick={sendAlert}>Alert the patient</div>
             </div>}
             {
             (quiz=="A")&&<div>
@@ -348,7 +359,8 @@ const Response =()=>{
                 <Card question="Are you impulsive" answer={map[7]}/>
                 <Card question="Are you forgetfull?" answer={map[8]}/>
                 <Card question="Do you have trouble shutting off your brain?" answer={map[9]}/>
-                <Card question="Prediction of depression" answer={prediction_ans}/>
+                <Card question="Prediction of ADHD" answer={prediction_ans}/>
+                <div className="alert" onClick={sendAlert}>Alert the patient</div>
             </div>
         }
         {
@@ -359,8 +371,8 @@ const Response =()=>{
                 <Card question="Do you worry about harm comming to yourself or your loved ones?" answer={map[3]}/>
                 <Card question="Are you worried about losing something valuable?" answer={map[4]}/>
                 <Card question="Are you worried about contamination or catching a serious illness" answer={map[5]}/>
-                
-                <Card question="Prediction of depression" answer={prediction_ans}/>
+                <Card question="Prediction of OCD" answer={prediction_ans}/>
+                <div className="alert" onClick={sendAlert}>Alert the patient</div>
             </div>
         }
             <Footer/>

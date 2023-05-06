@@ -28,7 +28,6 @@
     /* width: 100px; */
     display: inline;
 }
-
 .display_responses {
     width: 75%;
     background-color: antiquewhite;
@@ -42,7 +41,19 @@
 .Questions {
     padding: 20px;
 }
-
+.flying{
+    margin-top: 40px;
+    border-radius: 50px;
+    margin-left: 30vw;
+}
+.alert{
+    background-color: rgb(64, 64, 170);
+    color: white;
+    width: 30%;
+    font-size: 1.5rem;
+    margin: 0 auto;
+    text-align: center;
+}
 .Answer {
     width: 25%;
     margin-top: 2px;

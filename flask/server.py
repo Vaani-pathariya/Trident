@@ -31,6 +31,10 @@ firebase_admin.initialize_app(cred, {
 # As an admin, the app has access to read and write all data, regradless of Security Rules
 app = Flask(__name__)
 # Route for seeing a data
+@app.route('/data/alert')
+def alert_patient():
+	return "hello"
+
 @app.route('/data')
 def get_time():
 	predicting_list=[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]
