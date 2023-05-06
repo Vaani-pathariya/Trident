@@ -1,26 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
-.Response h1{
+
+.Response h1 {
     font-family: 'Lato', sans-serif;
 }
-.Response{
+
+.Response {
     text-align: center;
     margin-top: 60px;
 }
-.Response h4{
+
+.Response h4 {
     font-family: 'Lato', sans-serif;
 }
-.Response input{
+
+.Response input {
     width: 40%;
     margin-top: 30px;
     border-radius: 10px;
     padding: 10px;
+    border: none;
 }
-.username_response{
+
+.username_response {
     border-radius: 10px;
     padding: 10px;
     margin-left: 15px;
+    /* width: 100px; */
+    display: inline;
 }
-.display_responses{
+
+.display_responses {
     width: 75%;
     background-color: antiquewhite;
     margin: 30px auto;
@@ -29,14 +38,20 @@
     display: flex;
     justify-content: space-between;
 }
-.Questions{
-    margin-left: 20px;
-    margin-top: 2px;
+
+.Questions {
+    padding: 20px;
 }
-.Answer{
+
+.Answer {
     width: 25%;
     margin-top: 2px;
     text-align: center;
     background-color: rgb(243, 209, 176);
     border-radius: 5px;
+}
+
+.Answer h2 {
+    font-size: 20px;
+    padding: 20px;
 }

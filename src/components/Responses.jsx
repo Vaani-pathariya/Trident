@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from "react";
 import "./response.css"
+import Footer from "./Footer";
 import { ref,onValue,set} from "firebase/database";
 import {db_connecting} from './firebaseConfig'
 import Card from "./Card";
@@ -154,8 +155,8 @@ const Response =()=>{
             <div className="Response">
             <h1>Let's take a look at the responses of the patients:</h1>
             <h4>Enter the Userid of the patient</h4>
-            <input type="text" placeholder="Userid" value={username} onChange={handleChange_name}></input>
-            <button className="username_response" onClick={handle_Click}>GO</button>
+            <input  type="text" placeholder="Enter the UserID here" value={username} onChange={handleChange_name}></input>
+            <button className="username_response" onClick={handle_Click}>Analyse</button>
             </div>
             
             <Card question={que[0]} answer={map[0]}/>
@@ -167,6 +168,7 @@ const Response =()=>{
             <Card question={que[6]} answer={map[6]}/>
             <Card question={que[7]} answer={map[7]}/>
             <Card question="Prediction of depression" answer={data_.prediction}/>
+            <Footer/>
         </div>
     )
 }

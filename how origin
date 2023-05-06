@@ -1,0 +1,60 @@
+[33mcommit 8e4d988b129111d5a4021b5817d8a02d03653f99[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Anubhav <anubhavpal15june@gmail.com>
+Date:   Sat May 6 18:16:02 2023 +0530
+
+    Update Website theme
+
+[33mcommit a2df2b2b5987a1734ead4ef86c7a093ddad21023[m
+Author: Vaani <vaanipathariya@gmail.com>
+Date:   Sun Apr 23 00:37:44 2023 +0530
+
+    Feat : Added the complete functionality
+
+[33mcommit d93d85787d541961f28397ce1613d1fd55a42cef[m
+Author: Vaani <vaanipathariya@gmail.com>
+Date:   Sat Apr 22 03:21:56 2023 +0530
+
+    feat : added some functionality
+
+[33mcommit f952e5440549b1340a158470252f2c7e8216f491[m
+Author: Anubhav <anubhavpal15june@gmail.com>
+Date:   Fri Apr 21 21:00:18 2023 +0530
+
+    update files
+
+[33mcommit ea5805492392d8147c548e84de5eba97506c9028[m
+Merge: fec795f 2f2b2ab
+Author: Anubhav <anubhavpal15june@gmail.com>
+Date:   Fri Apr 21 20:39:01 2023 +0530
+
+    Merge branch 'main' of https://github.com/Vaani-pathariya/Trident
+
+[33mcommit fec795fb28520d09607c963a2d0ab0e824f98541[m
+Author: Anubhav <anubhavpal15june@gmail.com>
+Date:   Fri Apr 21 20:33:15 2023 +0530
+
+    Add starting files
+
+[33mcommit 2f2b2ab029f4c30bc8eeb9ed25cc44e181b82eb3[m
+Author: Vaani <vaanipathariya@gmail.com>
+Date:   Wed Apr 19 20:36:42 2023 +0530
+
+    Feat : deleted the not required files
+
+[33mcommit 2df2960e48cc650a1ae5a3137b7df916d4014e36[m
+Author: Vaani <vaanipathariya@gmail.com>
+Date:   Sun Apr 16 19:42:27 2023 +0530
+
+    Feat : created the model for prediction
+
+[33mcommit 5c846fd0f6f1709b1a0dcfe3aa12a1a653685fe5[m
+Author: Anubhav <anubhavpal15june@gmail.com>
+Date:   Sun Apr 16 00:25:23 2023 +0530
+
+    Initialize project using Create React App
+
+[33mcommit 211c291a13796779af8d3ba057471f6f391f41ff[m
+Author: Vaani <vaanipathariya@gmail.com>
+Date:   Sat Apr 15 20:30:56 2023 +0530
+
+    Feat : Adding data
