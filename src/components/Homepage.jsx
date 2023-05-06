@@ -1,11 +1,13 @@
 import React from 'react'
 import Header from './Header'
-import landingPageImage from '../assets/images/009.jpg'
+import Quizzes from './Quizzes'
+import Footer from './Footer'
 import test01 from '../assets/images/005.jpg'
 import test02 from '../assets/images/006.jpg'
 import test03 from '../assets/images/007.jpg'
-import stringimg from '../assets/images/string.png'
-
+import cheerUpBro from '../assets/images/cheerUpBro.png'
+import people from '../assets/images/people.png'
+import './landingSection.css'
 export default function Homepage() {
     return (
         <div>
@@ -13,22 +15,27 @@ export default function Homepage() {
                 <Header />
             </nav>
             {/* Landing page section */}
-            <section className='Landing-section '>
-                <div>
-                    <div className="landing-sec-bg-img"><img src={landingPageImage} alt="" /></div>
-                    <div className="landing-sec-content container flex">
-                        <h1>Helping mamas thrive</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque ea vitae accusamus suscipit neque, eius reiciendis mollitia exercitationem ab architecto perferendis iusto fugiat maxime expedita fugit pariatur adipisci temporibus consectetur! Fugit assumenda omnis necessitatibus quo optio tempore suscipit ducimus possimus?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing rferendis iusto fugiat maxime expedita fugit pariatur adipisci temporibus consectetur! Fugit assumenda omnis necessitatibus quo optio tempore suscipit ducimus possimus?</p>
-
+            <section className='Landing-section container'>
+                <div className="landing-sec-content flex">
+                    <h1>Take Control of Your <br /> Mental Health</h1>
+                    <p>If you're struggling with depression, OCD, ADHD, or other mental health concerns, you're not alone. Our web app is here to provide you with the resources and support you need to take control of your mental health. Don't wait any longer to prioritize your mental health – start your journey towards wellness today.</p>
+                    <button>Get Started</button>
+                    <div className='pastUsers'>
+                        <img src={people} alt="people" />
+                        <p>Over 1600+ people have sought help from us.</p>
                     </div>
-
                 </div>
+                <div className="landing-sec-bg-img"><img src={cheerUpBro} alt="" /></div>
+
             </section>
-            {/* quiz-section */}
-            
+
+            {/* Types of quiz */}
+            <section>
+                <Quizzes />
+            </section>
+
             {/* Testimonial */}
-            <section className='testimonial-section '>
+            <section className='testimonial-section container'>
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -78,14 +85,11 @@ export default function Homepage() {
                     </button>
                 </div>
             </section>
-            {/* CTA section */}
-            <section className="cta-section"></section>
+
             {/* Footer */}
-            <section className="footer"></section>
-            {/* sub footer */}
-            <section className="sub-footer"></section>
-            {/* spacer */}
-            <div className="spacer"></div>
+            <section className="footer">
+                <Footer />
+            </section>
         </div>
     )
 }

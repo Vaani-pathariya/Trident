@@ -6,7 +6,10 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+   
 }
+
+
 
 :root {
     --primary-text-color: #a14930;
@@ -16,6 +19,10 @@
 a {
     text-decoration: none;
     display: inline-block;
+}
+
+li {
+    text-decoration: none;
 }
 
 ul {
@@ -33,45 +40,6 @@ ul {
 
 .flex {
     display: flex;
-    /* align-items: center; */
-}
-
-
-.primary-btn {
-    background-color: var(--primary-text-color);
-    border-radius: 6px;
-    border: 1px solid #434343;
-    font-weight: 400;
-    color: white !important;
-    padding: 12px 30px;
-    transition: 0.3s ease-out;
-}
-
-.primary-btn:hover {
-    border-radius: 30px;
-}
-
-
-
-
-/* Header */
-
-.Header-main-container {
-    margin-top: 20px;
-}
-
-.header-main-content {
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-links {
-    gap: 25px;
-    align-items: center;
-}
-
-.babyblues-header-logo{
-    color: var(--secondary-text-color);
 }
 
 
@@ -192,11 +160,12 @@ form label {
     .Login-main-container {
         flex-direction: column;
     }
+
     form .form-box {
         width: 100%;
     }
 
-    .login-main-content{
+    .login-main-content {
         width: 80%;
     }
 

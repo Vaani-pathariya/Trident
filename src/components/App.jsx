@@ -4,6 +4,7 @@ import Signup from './Signup'
 import Homepage from './Homepage'
 import Response from './Responses'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import '../styles.css'
 
 export default function App() {
     return (

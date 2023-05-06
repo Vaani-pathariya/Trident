@@ -1,19 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-export default function Header() {
-  return (
-    <div className='Header-main-container' >
+import logo from '../assets/images/logo.png'
+import './header.css'
+const Header = () => (
+    <div >
         <div className="container header-main-content flex">
             <div className="babyblues-header-logo">
-                <h1>BabyBlues.</h1>
+                <h3 >TherapyPal</h3>
+                <img src={logo} alt="" />
             </div>
-            <div className="nav-links-container">
-                <ul className="nav-links flex">
-                    <li className='nav-link'><Link to="/" ><i class="fa-solid fa-user"></i></Link></li>
-                    <li className='nav-link primary-btn'><Link to="/signup" >Signup/Login</Link></li>
+            <div className='navbar-links'>
+                <ul>
+                    <li><a href=''>Home</a></li>
+                    <li><a href=''>What is TherapyPal?</a></li>
+                    <li><a href=''>Case Studies</a></li>
+                    <li><a href=''>About</a></li>
                 </ul>
+                <button><Link to="/signup" >Signup/Login</Link></button>
             </div>
         </div>
-    </div>
-  )
-}
+    </div >
+)
+
+export default Header;
