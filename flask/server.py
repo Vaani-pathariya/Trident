@@ -27,7 +27,7 @@ firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://trident-a4b03-default-rtdb.firebaseio.com/'
 })
 TWILIO_SID='AC3c56255301b4c916b769acb3204e053a'
-TWILIO_TOKEN='424f94919bf026e2d40316ab5f4058b1'
+TWILIO_TOKEN='0dad37e4acc7d937082cb5a602a24a22'
 
 client=Client(TWILIO_SID,TWILIO_TOKEN)
 # As an admin, the app has access to read and write all data, regradless of Security Rules

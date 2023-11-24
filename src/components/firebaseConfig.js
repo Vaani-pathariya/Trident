@@ -6,7 +6,7 @@ import {getDatabase} from 'firebase/database'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDzUQkXoDISGb5tv-w-xh7uxjf43d9zMNE",
+  apiKey: "7SpcMCZj3LTeDssZvsC8mnIoI7j1",
   authDomain: "trident-a4b03.firebaseapp.com",
   databaseURL: "https://trident-a4b03-default-rtdb.firebaseio.com",
   projectId: "trident-a4b03",
